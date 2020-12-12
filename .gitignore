@@ -348,3 +348,18 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Executables
+*.exe
+!Dependencies/*/Bin/*.exe
+*.out
+*.app
+
+# Build directory
+Saffron/bin/
+
+# Folders
+.vs/
+Bin/
+Bin-Int/
+!Dependencies/*/Bin/
