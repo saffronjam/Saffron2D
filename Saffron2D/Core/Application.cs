@@ -1,6 +1,9 @@
 ﻿using System;
 using Saffron2D.Exceptions;
 using System.Collections.Generic;
+using ImGuiNET;
+using Saffron2D.GuiCollection;
+using SFML.Graphics;
 
 namespace Saffron2D.Core
 {
@@ -8,7 +11,7 @@ namespace Saffron2D.Core
     {
         public Window Window { get; }
 
-        protected static Application instance;
+        private static Application instance = null;
 
         private readonly List<Layer> layers = new List<Layer>();
         private bool shouldRun = true;
@@ -17,13 +20,29 @@ namespace Saffron2D.Core
         {
             if (instance != null)
             {
-                throw new Exceptions.SaffronStateException("Application already created.");
+                throw new SaffronStateException("Application already created.");
             }
+
+            instance = this;
 
             Window = new Window(videoMode, windowTitle);
             Window.Closed += (sender, args) => { Exit(); };
 
             Input.AddEventSource(Window);
+
+            Gui.Init();
+        }
+
+        private void RenderGui()
+        {
+            Gui.Begin();
+
+            foreach (var layer in layers)
+            {
+                layer.OnGuiRender();
+            }
+
+            Gui.End();
         }
 
         public void Start()
@@ -36,18 +55,23 @@ namespace Saffron2D.Core
 
                 Window.DispatchEvents();
 
+                Window.Clear(Color.Black);
                 foreach (var layer in layers)
                 {
                     layer.OnUpdate(dt);
                 }
 
+                RenderGui();
+
                 Input.OnUpdate();
                 Run.OnUpdate(dt);
                 Run.Execute();
+                Window.Display();
             }
 
             OnShutdown();
         }
+
         public virtual void Exit()
         {
             shouldRun = false;
@@ -73,7 +97,8 @@ namespace Saffron2D.Core
                 {
                     return instance;
                 }
-                throw new SaffronStateException("Application getter not implemented by client.");
+
+                throw new SaffronStateException("Application not created.");
             }
         }
 
@@ -82,17 +107,17 @@ namespace Saffron2D.Core
             layers.Add(layer);
             layer.OnAttach();
         }
+
         public void PopLayer()
         {
             layers[layers.Count - 1].OnDetach();
             layers.RemoveAt(layers.Count - 1);
         }
+
         public void RemoveLayer(Layer layer)
         {
             layer.OnDetach();
             layers.Remove(layer);
         }
     }
-
-
 }

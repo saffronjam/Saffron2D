@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ownem\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ownem\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Saffron2D.-1925900339.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ownem\source\repos\Saffron2D" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Project" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Layers" t="Include">
+          <e p="MainLayer.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Project.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Project.csproj" t="IncludeRecursive" />
+        <e p="ProjectApplication.cs" t="Include" />
+      </e>
+      <e p="Saffron2D" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Core" t="Include">
+          <e p="Application.cs" t="Include" />
+          <e p="Global.cs" t="Include" />
+          <e p="Input.cs" t="Include" />
+          <e p="Layer.cs" t="Include" />
+          <e p="Run.cs" t="Include" />
+          <e p="SfmlExtension" t="Include">
+            <e p="Vector4.cs" t="Include" />
+          </e>
+          <e p="Window.cs" t="Include" />
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="SaffronStateException.cs" t="Include" />
+        </e>
+        <e p="GuiCollection" t="Include">
+          <e p="Gui.cs" t="Include" />
+          <e p="GuiImpl.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Saffron2D.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Saffron2D.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Saffron2D.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

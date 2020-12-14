@@ -1,4 +1,5 @@
 ﻿using System;
+using SFML.Graphics;
 using SFML.Window;
 
 namespace Saffron2D.Core
@@ -7,7 +8,7 @@ namespace Saffron2D.Core
     {
         private string _Title;
 
-        public SFML.Window.Window NativeWindow { get; }
+        public SFML.Graphics.RenderWindow NativeWindow { get; }
 
         public string Title
         {
@@ -22,7 +23,7 @@ namespace Saffron2D.Core
 
         public Window(VideoMode videoMode, string title)
         {
-            NativeWindow = new SFML.Window.Window(videoMode, title);
+            NativeWindow = new SFML.Graphics.RenderWindow(videoMode, title);
             Title = title;
             NativeWindow.SetVerticalSyncEnabled(true);
         }
@@ -30,6 +31,16 @@ namespace Saffron2D.Core
         public void DispatchEvents()
         {
             NativeWindow.DispatchEvents();
+        }
+
+        public void Clear(Color color)
+        {
+            NativeWindow.Clear(color);
+        }
+        
+        public void Display()
+        {
+            NativeWindow.Display();
         }
 
         public event EventHandler Closed

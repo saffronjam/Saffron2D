@@ -1,5 +1,7 @@
 ﻿using System;
+using ImGuiNET;
 using Saffron2D.Core;
+using Saffron2D.GuiCollection;
 using SFML.Window;
 
 using Time = SFML.System.Time;
@@ -14,10 +16,12 @@ namespace Project.Layers
 
         public override void OnUpdate(Time dt)
         {
-            if (Input.IsMouseButtonPressed(Mouse.Button.Left))
-            {
-                Run.Interval(() => Application.Instance.Window.Title = "Delta time: " + dt.AsMicroseconds(), Time.FromSeconds(1));
-            }
+        }
+
+        public override void OnGuiRender()
+        {
+            ImGui.Begin("TESt");
+            ImGui.End();
         }
     }
 }
