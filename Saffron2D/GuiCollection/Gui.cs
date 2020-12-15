@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using ImGuiNET;
 using Saffron2D.Core;
 using SFML.Graphics;
@@ -10,30 +13,32 @@ namespace Saffron2D.GuiCollection
 {
     public class Gui
     {
-        private static Dictionary<int, ImFontPtr> fonts = new Dictionary<int, ImFontPtr>();
-        private static Tuple<int, ImFontPtr> activeFont;
+        private static readonly Dictionary<int, ImFontPtr> Fonts = new Dictionary<int, ImFontPtr>(); 
 
-        public static void Init()
+        public static void OnInit()
         {
             // Setup Platform/Renderer bindings
             var window = Application.Instance.Window;
-            GuiImpl.Sfml.Init( window.NativeWindow as RenderWindow, true);
+            GuiImpl.Init( window.NativeWindow as RenderWindow, true);
             
             var io = ImGui.GetIO();
 
             const int defaultFontSize = 18;
-            var newFont = AddFont("Resources/Assets/Fonts/segoeui.ttf", defaultFontSize);
-
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 8);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 12);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 14);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 20);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 22);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 24);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 28);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 32);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 56);
-            AddFont("Resources/Assets/Fonts/segoeui.ttf", 72);
+            var newFont = AddFont("C:/Windows/Fonts/segoeui.ttf", defaultFontSize);
+            
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 8);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 12);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 14);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 20);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 22);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 24);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 28);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 32);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 56);
+            AddFont("C:/Windows/Fonts/segoeui.ttf", 72);
+            
+            GuiImpl.UpdateFontTexture();
+            
 
             ImGui.StyleColorsDark();
             var style = ImGui.GetStyle();
@@ -179,27 +184,60 @@ namespace Saffron2D.GuiCollection
             // style.Colors[ImGuiCol_TabUnfocusedActive] = ToImVec4(mainLessVibrantNoTint);						//14
         }
 
-        public static void Begin()
+        public static void OnShutdown()
         {
-        }
-
-        public static void End()
-        {
-            var window = Application.Instance.Window;
-            GuiImpl.Sfml.Render(window.NativeWindow);
+            GuiImpl.Shutdown();
         }
 
         public static void OnUpdate(Time dt)
         {
             var window = Application.Instance.Window;
-            GuiImpl.Sfml.Update(window.NativeWindow, window.NativeWindow, dt);
+            GuiImpl.Update(window.NativeWindow, window.NativeWindow, dt);
+        }
+
+        public static void OnRender()
+        {
+            var window = Application.Instance.Window;
+            GuiImpl.Render(window.NativeWindow);
         }
 
         private static ImFontPtr AddFont(string path, int size)
         {
+            var exists = File.Exists(path);
             var newFont = ImGui.GetIO().Fonts.AddFontFromFileTTF(path, size);
-            fonts.Add(size, newFont);
+            Fonts.Add(size, newFont);
             return newFont;
         }
+
+        public static void SetFontSize(int size)
+        {
+            throw new NotImplementedException();
+        }
+        
+        private static ImFontPtr GetAppropriateFont(int size)
+        {
+            ImFontPtr candidate = null;
+            var bestDiff = int.MaxValue;
+            foreach ( var (key, value) in Fonts )
+            {
+                var diff = Math.Abs(key - size);
+                if ( diff > bestDiff )
+                {
+                    break;
+                }
+                bestDiff = diff;
+                candidate = value;
+            }
+            return candidate;
+        }
+
+
+
+        public static Texture GetFontTexture()
+        {
+            return GuiImpl.GetFontTexture();
+        }
+        
+        
     }
 }
