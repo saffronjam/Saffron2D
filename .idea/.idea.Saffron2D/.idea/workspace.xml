@@ -6,15 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Project.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Saffron2D.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Saffron2D.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +34,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Saffron2D/Core/Window.cs" />
       <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
       <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" />
-      <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
       <option value="$PROJECT_DIR$/Project/Layers/MainLayer.cs" />
+      <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
+      <option value="$PROJECT_DIR$/Saffron2D/Core/Window.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lcLV0CZjwQfFpsR2zfJQrVuhym" />
@@ -119,7 +114,8 @@
       <workItem from="1607891653328" duration="11430000" />
       <workItem from="1607954290210" duration="641000" />
       <workItem from="1608025947207" duration="8996000" />
-      <workItem from="1608040412044" duration="1000000" />
+      <workItem from="1608040412044" duration="5703000" />
+      <workItem from="1608104622634" duration="1738000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using OpenTK;
 using SFML.Graphics;
 using SFML.Window;
 
