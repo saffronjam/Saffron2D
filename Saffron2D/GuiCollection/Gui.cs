@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
+using System.Text;
 using ImGuiNET;
 using Saffron2D.Core;
 using Saffron2D.Core.SfmlExtension;
+using Saffron2D.Exceptions;
 using SFML.Graphics;
 using SFML.System;
 
@@ -11,29 +14,48 @@ namespace Saffron2D.GuiCollection
 {
     public class Gui
     {
+        public enum PropertyFlag
+        {
+            None = 0,
+            Color = 1,
+            Drag = 2,
+            Slider = 4
+        };
+
+        private const float FloatStep = 0.1f;
+        private const float FloatMin = 0.0f;
+        private const float FloatMax = 10.0f;
+
+        private const int IntStep = 1;
+        private const int IntMin = 0;
+        private const int IntMax = 10;
+
+        private static bool _begunPropertyGrid = false;
+
         private static readonly Dictionary<int, ImFontPtr> Fonts = new Dictionary<int, ImFontPtr>();
         private static string IniFilepath { get; set; }
 
         public static void OnInit(string iniFilepath)
         {
-            IniFilepath = iniFilepath;   
-            
+            IniFilepath = iniFilepath;
+
             // Setup Platform/Renderer bindings
             var window = Application.Instance.Window;
-            GuiImpl.Init( window.NativeWindow as RenderWindow, true);
-            
+            GuiImpl.Init(window.NativeWindow as RenderWindow, true);
+
             var io = ImGui.GetIO();
 
             unsafe
             {
                 io.NativePtr->IniFilename = null;
             }
+
             ImGui.LoadIniSettingsFromDisk(IniFilepath);
-            
-            
+
+
             const int defaultFontSize = 18;
             var newFont = AddFont("C:/Windows/Fonts/segoeui.ttf", defaultFontSize);
-            
+
             AddFont("C:/Windows/Fonts/segoeui.ttf", 8);
             AddFont("C:/Windows/Fonts/segoeui.ttf", 12);
             AddFont("C:/Windows/Fonts/segoeui.ttf", 14);
@@ -44,9 +66,9 @@ namespace Saffron2D.GuiCollection
             AddFont("C:/Windows/Fonts/segoeui.ttf", 32);
             AddFont("C:/Windows/Fonts/segoeui.ttf", 56);
             AddFont("C:/Windows/Fonts/segoeui.ttf", 72);
-            
+
             GuiImpl.UpdateFontTexture();
-            
+
 
             ImGui.StyleColorsDark();
             var style = ImGui.GetStyle();
@@ -227,31 +249,360 @@ namespace Saffron2D.GuiCollection
         {
             return GetAppropriateFont(size);
         }
-        
-        private static ImFontPtr GetAppropriateFont(int size)
-        {
-            ImFontPtr candidate = null;
-            var bestDiff = int.MaxValue;
-            foreach ( var (key, value) in Fonts )
-            {
-                var diff = Math.Abs(key - size);
-                if ( diff > bestDiff )
-                {
-                    break;
-                }
-                bestDiff = diff;
-                candidate = value;
-            }
-            return candidate;
-        }
-
-
 
         public static Texture GetFontTexture()
         {
             return GuiImpl.GetFontTexture();
         }
-        
-        
+
+        private static ImFontPtr GetAppropriateFont(int size)
+        {
+            ImFontPtr candidate = null;
+            var bestDiff = int.MaxValue;
+            foreach (var (key, value) in Fonts)
+            {
+                var diff = Math.Abs(key - size);
+                if (diff > bestDiff)
+                {
+                    break;
+                }
+
+                bestDiff = diff;
+                candidate = value;
+            }
+
+            return candidate;
+        }
+
+        static void PushID()
+        {
+        }
+
+        static void PopID()
+        {
+        }
+
+
+        /*
+         * Gui Properties
+         */
+
+
+        public static void BeginPropertyGrid(float width = -1.0f)
+        {
+            if (_begunPropertyGrid)
+            {
+                throw new SaffronStateException("Property grid in bad state. Did you call BeginPropertyGrid() twice?");
+            }
+
+            _begunPropertyGrid = true;
+
+            PushID();
+            ImGui.Columns(2);
+            ImGui.AlignTextToFramePadding();
+        }
+
+        public static void EndPropertyGrid()
+        {
+            if (!_begunPropertyGrid)
+            {
+                throw new SaffronStateException("Property grid in bad state. Did you call EndPropertyGrid() twice?");
+            }
+
+            ImGui.Columns(1);
+            PopID();
+
+            _begunPropertyGrid = false;
+        }
+
+        public static void Property(string name, Action onClick, bool secondColumn = false)
+        {
+            if (secondColumn)
+            {
+                ImGui.NextColumn();
+            }
+
+            var id = name + "##" + name;
+            if (ImGui.Button(id, new Vector2(ImGui.GetContentRegionAvail().X, 0)))
+            {
+                onClick();
+            }
+
+            if (!secondColumn)
+            {
+                ImGui.NextColumn();
+            }
+
+            ImGui.NextColumn();
+        }
+
+        public static void Property(string name, string value)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            ImGui.InputText(id, Encoding.ASCII.GetBytes(value), 256, ImGuiInputTextFlags.ReadOnly);
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+        }
+
+        public static bool Property(string name, ref string value)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var buffer = new byte[256];
+            var valueByteBuffer = Encoding.ASCII.GetBytes(value);
+            Array.Copy(valueByteBuffer, buffer, Math.Min(value.Length, buffer.Length));
+
+            var id = "##" + name;
+            var changed = false;
+            if (ImGui.InputText(id, buffer, (uint) buffer.Length))
+            {
+                value = Encoding.ASCII.GetString(buffer);
+                changed = true;
+            }
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref bool value)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            var result = ImGui.Checkbox(id, ref value);
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return result;
+        }
+
+        public static bool Property(string name, string text, string buttonName, Action onButtonPress)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+
+            var minButtonWidth = ImGui.CalcTextSize(buttonName).X + 8.0f;
+            var textBoxWidth = ImGui.GetContentRegionAvail().X - minButtonWidth;
+
+            if (textBoxWidth > 0.0f)
+            {
+                ImGui.PushItemWidth(textBoxWidth);
+                var stringByteBuffer = Encoding.ASCII.GetBytes(text);
+                var id = "##" + name;
+                ImGui.InputText(id, stringByteBuffer, (uint) stringByteBuffer.Length, ImGuiInputTextFlags.ReadOnly);
+                ImGui.PopItemWidth();
+                ImGui.SameLine();
+            }
+
+            var changed = false;
+            var contentRegionAvailable = ImGui.GetContentRegionAvail().X;
+            if (contentRegionAvailable > 0.0f)
+            {
+                if (ImGui.Button(buttonName, new Vector2(ImGui.GetContentRegionAvail().X, 0.0f)))
+                {
+                    onButtonPress?.Invoke();
+                    changed = true;
+                }
+            }
+
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref int value, int min = IntMin, int max = IntMax,
+            float step = IntStep, PropertyFlag flag = PropertyFlag.None)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            var changed = flag switch
+            {
+                PropertyFlag.Slider => ImGui.SliderInt(id, ref value, min, max),
+                PropertyFlag.Drag => ImGui.DragInt(id, ref value, step, min, max),
+                _ => false
+            };
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref float value, float min = FloatMin, float max = FloatMax,
+            float step = FloatStep, PropertyFlag flag = PropertyFlag.None)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            var changed = flag switch
+            {
+                PropertyFlag.Slider => ImGui.SliderFloat(id, ref value, min, max),
+                PropertyFlag.Drag => ImGui.DragFloat(id, ref value, step, min, max),
+                _ => false
+            };
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref Vector2f value, PropertyFlag flag)
+        {
+            return Property(name, ref value, FloatMin, FloatMax, FloatStep, flag);
+        }
+
+        public static bool Property(string name, ref Vector2f value, float min = FloatMin, float max = FloatMax,
+            float step = FloatStep, PropertyFlag flag = PropertyFlag.None)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            var imVec2 = ToImGuiVec2(value);
+            var changed = flag switch
+            {
+                PropertyFlag.Slider => ImGui.SliderFloat2(id, ref imVec2, min, max),
+                PropertyFlag.Drag => ImGui.DragFloat2(id, ref imVec2, step, min, max),
+                _ => false
+            };
+            CopyToSfmlVec2(ref value, imVec2);
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref Vector3f value, PropertyFlag flag)
+        {
+            return Property(name, ref value, FloatMin, FloatMax, FloatStep, flag);
+        }
+
+        public static bool Property(string name, ref Vector3f value, float min = FloatMin, float max = FloatMax,
+            float step = FloatStep, PropertyFlag flag = PropertyFlag.None, Action fn = null)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+
+            if (fn != null)
+            {
+                ImGui.PushItemWidth(ImGui.GetContentRegionAvail().X * 0.75f);
+            }
+            else
+            {
+                ImGui.PushItemWidth(-1);
+            }
+
+            var id = "##" + name;
+            var imVec3 = ToImGuiVec3(value);
+            var changed = flag switch
+            {
+                PropertyFlag.Color => ImGui.ColorEdit3(id, ref imVec3, ImGuiColorEditFlags.NoInputs),
+                PropertyFlag.Slider => ImGui.SliderFloat3(id, ref imVec3, min, max),
+                PropertyFlag.Drag => ImGui.DragFloat3(id, ref imVec3, step, min, max),
+                _ => false
+            };
+            CopyToSfmlVec3(ref value, imVec3);
+
+            if (fn != null)
+            {
+                var buttonId = "<" + id + "##fn";
+                ImGui.SameLine();
+                if (ImGui.Button(buttonId, new Vector2(ImGui.GetContentRegionAvail().X, 0.0f)))
+                {
+                    fn();
+                    changed = false;
+                }
+            }
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        public static bool Property(string name, ref Vector4f value, PropertyFlag flag)
+        {
+            return Property(name, ref value, FloatMin, FloatMax, FloatStep, flag);
+        }
+
+        public static bool Property(string name, ref Vector4f value, float min = FloatMin, float max = FloatMax,
+            float step = FloatStep, PropertyFlag flag = PropertyFlag.None)
+        {
+            ImGui.Text(name);
+            ImGui.NextColumn();
+            ImGui.PushItemWidth(-1);
+
+            var id = "##" + name;
+            var imVec4 = ToImGuiVec4(value);
+            var changed = flag switch
+            {
+                PropertyFlag.Color => ImGui.ColorEdit4(id, ref imVec4, ImGuiColorEditFlags.NoInputs),
+                PropertyFlag.Slider => ImGui.SliderFloat4(id, ref imVec4, min, max),
+                PropertyFlag.Drag => ImGui.DragFloat4(id, ref imVec4, step, min, max),
+                _ => false
+            };
+            CopyToSfmlVec4(ref value, imVec4);
+
+            ImGui.PopItemWidth();
+            ImGui.NextColumn();
+
+            return changed;
+        }
+
+        private static Vector4 ToImGuiVec4(Vector4f v)
+        {
+            return new Vector4(v.X, v.Y, v.Z, v.W);
+        }
+
+        private static Vector3 ToImGuiVec3(Vector3f v)
+        {
+            return new Vector3(v.X, v.Y, v.Z);
+        }
+
+        private static Vector2 ToImGuiVec2(Vector2f v)
+        {
+            return new Vector2(v.X, v.Y);
+        }
+
+        private static void CopyToSfmlVec4(ref Vector4f to, Vector4 from)
+        {
+            to.X = from.X;
+            to.Y = from.Y;
+            to.Z = from.Z;
+            to.W = from.W;
+        }
+
+        private static void CopyToSfmlVec3(ref Vector3f to, Vector3 from)
+        {
+            to.X = from.X;
+            to.Y = from.Y;
+            to.Z = from.Z;
+        }
+
+        private static void CopyToSfmlVec2(ref Vector2f to, Vector2 from)
+        {
+            to.X = from.X;
+            to.Y = from.Y;
+        }
     }
 }

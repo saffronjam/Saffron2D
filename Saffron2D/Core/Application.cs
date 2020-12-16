@@ -1,4 +1,5 @@
-﻿using Saffron2D.Exceptions;
+﻿using System;
+using Saffron2D.Exceptions;
 using System.Collections.Generic;
 using ImGuiNET;
 using Saffron2D.Graphics;
@@ -20,6 +21,7 @@ namespace Saffron2D.Core
 
         private Time _fpsTimer = Time.Zero;
         private int _cachedFps = 0;
+        private Time _cachedSpf = Time.Zero;
         private Time _storedFrametime = Time.Zero;
         private int _storedFrameCount = 0;
 
@@ -47,7 +49,7 @@ namespace Saffron2D.Core
             {
                 var dt = Global.Clock.FrameTime;
                 _fpsTimer += dt;
-                if (_fpsTimer.AsSeconds() < 2.0f)
+                if (_fpsTimer.AsSeconds() < 1.0f)
                 {
                     _storedFrameCount++;
                     _storedFrametime += dt;
@@ -55,15 +57,22 @@ namespace Saffron2D.Core
                 else
                 {
                     _cachedFps = (int) (_storedFrameCount / _storedFrametime.AsSeconds());
+                    _cachedSpf = Time.FromSeconds(_storedFrametime.AsSeconds() / _storedFrameCount);
                     _storedFrameCount = 0;
                     _storedFrametime = Time.Zero;
                     _fpsTimer = Time.Zero;
                 }
-
-
-                ImGui.Text("Frametime " + Global.Clock.FrameTime.AsSeconds() + " s");
-                ImGui.Text("FPS: " + _cachedFps);
+                
+                Gui.BeginPropertyGrid();
+                
+                Gui.Property("Vendor", "SFML v.2.5.0");
+                Gui.Property("Frametime", _cachedSpf.AsMicroseconds() / 1000.0f + " ms");
+                Gui.Property("FPS", _cachedFps.ToString());
+                
+                Gui.EndPropertyGrid();
+                
                 ImGui.End();
+                
             }
         }
 

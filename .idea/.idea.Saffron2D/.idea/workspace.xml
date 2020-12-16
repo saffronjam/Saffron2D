@@ -23,7 +23,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="Rename through solution to be consistent and follow naming conventions">
+    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="Improve font quality (use segoui.ttf-18 instead of default)">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/gui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Project/gui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" afterDir="false" />
     </list>
@@ -68,8 +70,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35048753" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.026002167" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35060638" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -143,7 +145,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1608156229797</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Improve font quality (use segoui.ttf-18 instead of default)">
+      <created>1608156626503</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1608156626503</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +175,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Rename through solution to be consistent and follow naming conventions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename through solution to be consistent and follow naming conventions" />
+    <MESSAGE value="Improve font quality (use segoui.ttf-18 instead of default)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve font quality (use segoui.ttf-18 instead of default)" />
   </component>
 </project>
