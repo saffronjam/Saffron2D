@@ -7,16 +7,16 @@ namespace Saffron2D.Graphics
 {
     public static class RenderTargetManager
     {
-        private static readonly List<ControllableRenderTarget> _targets = new List<ControllableRenderTarget>();
+        private static readonly List<ControllableRenderTarget> Targets = new List<ControllableRenderTarget>();
 
         public static void Add(ControllableRenderTarget renderTarget)
         {
-            _targets.Add(renderTarget);
+            Targets.Add(renderTarget);
         }
 
         public static void ClearAll()
         {
-            foreach (var target in _targets.Where(target => target.Enabled))
+            foreach (var target in Targets.Where(target => target.Enabled))
             {
                 target.RenderTarget.Clear(target.ClearColor);
             }
@@ -24,7 +24,7 @@ namespace Saffron2D.Graphics
 
         public static void DisplayAll()
         {
-            foreach (var target in _targets.Where(target => target.Enabled))
+            foreach (var target in Targets.Where(target => target.Enabled))
             {
                 switch (target.RenderTarget)
                 {

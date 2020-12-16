@@ -18,10 +18,10 @@ namespace Saffron2D.Core
         private readonly List<Layer> _layers = new List<Layer>();
         private bool _shouldRun = true;
 
-        private Time fpsTimer = Time.Zero;
-        private int cachedFps = 0;
-        private Time storedFrametime = Time.Zero;
-        private int storedFrameCount = 0;
+        private Time _fpsTimer = Time.Zero;
+        private int _cachedFps = 0;
+        private Time _storedFrametime = Time.Zero;
+        private int _storedFrameCount = 0;
 
         protected Application(SFML.Window.VideoMode videoMode, string windowTitle)
         {
@@ -46,23 +46,23 @@ namespace Saffron2D.Core
             if (ImGui.Begin("Stats"))
             {
                 var dt = Global.Clock.FrameTime;
-                fpsTimer += dt;
-                if (fpsTimer.AsSeconds() < 2.0f)
+                _fpsTimer += dt;
+                if (_fpsTimer.AsSeconds() < 2.0f)
                 {
-                    storedFrameCount++;
-                    storedFrametime += dt;
+                    _storedFrameCount++;
+                    _storedFrametime += dt;
                 }
                 else
                 {
-                    cachedFps = (int) (storedFrameCount / storedFrametime.AsSeconds());
-                    storedFrameCount = 0;
-                    storedFrametime = Time.Zero;
-                    fpsTimer = Time.Zero;
+                    _cachedFps = (int) (_storedFrameCount / _storedFrametime.AsSeconds());
+                    _storedFrameCount = 0;
+                    _storedFrametime = Time.Zero;
+                    _fpsTimer = Time.Zero;
                 }
 
 
                 ImGui.Text("Frametime " + Global.Clock.FrameTime.AsSeconds() + " s");
-                ImGui.Text("FPS: " + cachedFps);
+                ImGui.Text("FPS: " + _cachedFps);
                 ImGui.End();
             }
         }

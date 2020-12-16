@@ -13,19 +13,19 @@ namespace Saffron2D.GuiCollection
             ImGui.SetNextWindowSize(viewport.GetWorkSize());
             ImGui.SetNextWindowViewport(viewport.ID);
 
-            ImGuiWindowFlags host_window_flags = 0;
-            host_window_flags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoDocking;
-            host_window_flags |= ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
-            host_window_flags |= ImGuiWindowFlags.NoBackground;
+            ImGuiWindowFlags hostWindowFlags = 0;
+            hostWindowFlags |= ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoDocking;
+            hostWindowFlags |= ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoNavFocus;
+            hostWindowFlags |= ImGuiWindowFlags.NoBackground;
 
             ImGui.PushStyleVar(ImGuiStyleVar.WindowRounding, 0.0f);
             ImGui.PushStyleVar(ImGuiStyleVar.WindowBorderSize, 0.0f);
             ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(0.0f, 0.0f));
-            ImGui.Begin("DockSpaceViewport_%08X", host_window_flags);
+            ImGui.Begin("DockSpaceViewport_%08X", hostWindowFlags);
             ImGui.PopStyleVar(3);
 
-            var dockspace_id = ImGui.GetID("DockSpace");
-            ImGui.DockSpace(dockspace_id, new Vector2(0.0f, 0.0f), ImGuiDockNodeFlags.None);
+            var dockspaceId = ImGui.GetID("DockSpace");
+            ImGui.DockSpace(dockspaceId, new Vector2(0.0f, 0.0f), ImGuiDockNodeFlags.None);
             ImGui.End();
         }
     }

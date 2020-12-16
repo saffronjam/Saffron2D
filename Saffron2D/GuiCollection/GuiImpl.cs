@@ -12,10 +12,10 @@ namespace Saffron2D.GuiCollection
     public static class GuiImpl
     {
         private static bool _windowHasFocus = false;
-        private static readonly bool[] mousePressed = new bool[] {false, false, false};
-        private static readonly bool[] touchDown = new bool[] {false, false, false};
+        private static readonly bool[] MousePressed = new bool[] {false, false, false};
+        private static readonly bool[] TouchDown = new bool[] {false, false, false};
         private static Texture _fontTexture = null;
-        private static readonly Cursor[] mouseCursors = new Cursor[(int) ImGuiMouseCursor.COUNT];
+        private static readonly Cursor[] MouseCursors = new Cursor[(int) ImGuiMouseCursor.COUNT];
 
         public static void Init(RenderWindow window, bool loadDefaultFont = true)
         {
@@ -107,7 +107,7 @@ namespace Saffron2D.GuiCollection
             var button = (int) args.Button;
             if (button >= 0 && button < 3)
             {
-                mousePressed[(int) args.Button] = true;
+                MousePressed[(int) args.Button] = true;
             }
         }
 
@@ -116,7 +116,7 @@ namespace Saffron2D.GuiCollection
             var button = (int) args.Button;
             if (button >= 0 && button < 3)
             {
-                mousePressed[(int) args.Button] = false;
+                MousePressed[(int) args.Button] = false;
             }
         }
 
@@ -211,11 +211,11 @@ namespace Saffron2D.GuiCollection
 
                 for (var i = 0; i < 3; i++)
                 {
-                    io.MouseDown[i] = touchDown[i] || Touch.IsDown((uint) i) ||
-                                      mousePressed[i] ||
+                    io.MouseDown[i] = TouchDown[i] || Touch.IsDown((uint) i) ||
+                                      MousePressed[i] ||
                                       Mouse.IsButtonPressed((Mouse.Button) i);
-                    mousePressed[i] = false;
-                    touchDown[i] = false;
+                    MousePressed[i] = false;
+                    TouchDown[i] = false;
                 }
             }
 
@@ -273,9 +273,9 @@ namespace Saffron2D.GuiCollection
             _fontTexture.Dispose();
             for (var i = 0; i < (int) ImGuiMouseCursor.COUNT; ++i)
             {
-                if(mouseCursors[i] != null)
+                if(MouseCursors[i] != null)
                 {
-                    mouseCursors[i].Dispose();
+                    MouseCursors[i].Dispose();
                 }
             }
 
@@ -311,7 +311,7 @@ namespace Saffron2D.GuiCollection
 
         private static void LoadMouseCursor(ImGuiMouseCursor imguiCursorType, Cursor.CursorType sfmlCursorType)
         {
-            mouseCursors[(int) imguiCursorType] = new Cursor(sfmlCursorType);
+            MouseCursors[(int) imguiCursorType] = new Cursor(sfmlCursorType);
         }
 
         private static void UpdateMouseCursor(Window window)
@@ -328,7 +328,7 @@ namespace Saffron2D.GuiCollection
             {
                 window.SetMouseCursorVisible(true);
 
-                var sfmlCursor = mouseCursors[(int) cursor] ?? mouseCursors[(int) ImGuiMouseCursor.Arrow];
+                var sfmlCursor = MouseCursors[(int) cursor] ?? MouseCursors[(int) ImGuiMouseCursor.Arrow];
                 window.SetMouseCursor(sfmlCursor);
             }
         }

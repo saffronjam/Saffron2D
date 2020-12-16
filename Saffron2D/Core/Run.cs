@@ -43,15 +43,15 @@ namespace Saffron2D.Core
             public Action Action { get; }
         }
 
-        private static readonly List<IntervalAction> intervalActions = new List<IntervalAction>();
-        private static readonly List<LaterAction> laterActions = new List<LaterAction>();
+        private static readonly List<IntervalAction> IntervalActions = new List<IntervalAction>();
+        private static readonly List<LaterAction> LaterActions = new List<LaterAction>();
 
         public static void OnUpdate(Time dt)
         {
-            intervalActions.RemoveAll(synchronizedAction => synchronizedAction.CancellationToken.IsCancellationRequested);
-            laterActions.RemoveAll(laterAction => laterAction.CancellationToken.IsCancellationRequested);
+            IntervalActions.RemoveAll(synchronizedAction => synchronizedAction.CancellationToken.IsCancellationRequested);
+            LaterActions.RemoveAll(laterAction => laterAction.CancellationToken.IsCancellationRequested);
 
-            foreach (var intervalAction in intervalActions)
+            foreach (var intervalAction in IntervalActions)
             {
                 intervalAction.Counter += dt;
             }
@@ -59,24 +59,24 @@ namespace Saffron2D.Core
 
         public static void Execute()
         {
-            foreach (var intervalAction in intervalActions.Where(intervalAction => intervalAction.Counter > intervalAction.Interval))
+            foreach (var intervalAction in IntervalActions.Where(intervalAction => intervalAction.Counter > intervalAction.Interval))
             {
                 intervalAction.Action();
                 intervalAction.Counter = Time.Zero;
             }
 
-            foreach (var laterAction in laterActions)
+            foreach (var laterAction in LaterActions)
             {
                 laterAction.Action();
             }
-            laterActions.Clear();
+            LaterActions.Clear();
         }
 
         public static CancellationTokenSource Later(Action action)
         {
             var cancellationTokenSource = new CancellationTokenSource();
             var laterAction = new LaterAction(cancellationTokenSource.Token, action);
-            laterActions.Add(laterAction);
+            LaterActions.Add(laterAction);
             return cancellationTokenSource;
         }
 
@@ -84,7 +84,7 @@ namespace Saffron2D.Core
         {
             var cancellationTokenSource = new CancellationTokenSource();
             var intervalAction = new IntervalAction(cancellationTokenSource.Token, action, interval);
-            intervalActions.Add(intervalAction);
+            IntervalActions.Add(intervalAction);
             return cancellationTokenSource;
         }
 

@@ -13,42 +13,42 @@ namespace Project.Layers
 {
     public class MainLayer : Layer
     {
-        private Camera camera;
-        private ControllableRenderTarget target;
-        private Scene scene;
+        private Camera _camera;
+        private ControllableRenderTarget _target;
+        private Scene _scene;
         
         // Gui
-        private DockSpace dockSpace;
-        private ViewportPane viewportPane;
+        private DockSpace _dockSpace;
+        private ViewportPane _viewportPane;
 
         public override void OnAttach()
         {
-            camera = new Camera();
-            target = new ControllableRenderTarget(new RenderTexture(10, 10), Color.Black);
-            scene = new Scene(target.RenderTarget, camera);
+            _camera = new Camera();
+            _target = new ControllableRenderTarget(new RenderTexture(10, 10), Color.Black);
+            _scene = new Scene(_target.RenderTarget, _camera);
             
             // Gui
-            dockSpace = new DockSpace();
-            viewportPane = new ViewportPane("Scene", target.RenderTarget as RenderTexture);
-            viewportPane.WantRenderTargetResize += OnRenderTargetResize;
+            _dockSpace = new DockSpace();
+            _viewportPane = new ViewportPane("Scene", _target.RenderTarget as RenderTexture);
+            _viewportPane.WantRenderTargetResize += OnRenderTargetResize;
 
-            RenderTargetManager.Add(target);
-            Application.Instance.Scene = scene;
+            RenderTargetManager.Add(_target);
+            Application.Instance.Scene = _scene;
         }
 
         public override void OnUpdate(Time dt)
         {
-            scene.OnUpdate();
+            _scene.OnUpdate();
 
             var rect = new RectangleShape(new Vector2f(10, 100));
-            scene.Submit(rect);
+            _scene.Submit(rect);
         }
 
         public override void OnGuiRender()
         {
-            dockSpace.OnGuiRender();
+            _dockSpace.OnGuiRender();
             Application.Instance.OnGuiRender();
-            viewportPane.OnGuiRender();
+            _viewportPane.OnGuiRender();
             
             ImGui.ShowDemoWindow();
         }
@@ -56,10 +56,10 @@ namespace Project.Layers
         private void OnRenderTargetResize(object sender, SizeEventArgs args)
         {
             var renderTarget = new RenderTexture(args.Width, args.Height);
-            target.RenderTarget = renderTarget;
-            viewportPane.Target = renderTarget;
-            scene.Target = renderTarget;
-            scene.ViewportSize = new Vector2f(args.Width, args.Height);
+            _target.RenderTarget = renderTarget;
+            _viewportPane.Target = renderTarget;
+            _scene.Target = renderTarget;
+            _scene.ViewportSize = new Vector2f(args.Width, args.Height);
         }
     }
 }

@@ -11,19 +11,19 @@ namespace Saffron2D.GuiCollection
 {
     public class ViewportPane
     {
-        private readonly string viewportTitle;
-        private static Texture fallbackTexture;
-        private uint dockId;
+        private readonly string _viewportTitle;
+        private static Texture _fallbackTexture;
+        private uint _dockId;
 
         private Vector2f _topLeft;
         private Vector2f _bottomRight;
 
-        private readonly uint inactiveBorderColor = BitConverter.ToUInt32(new byte[] {255, 140, 0, 80});
-        private readonly uint activeBorderColor = BitConverter.ToUInt32(new byte[] {255, 140, 0, 180});
+        private readonly uint _inactiveBorderColor = BitConverter.ToUInt32(new byte[] {255, 140, 0, 80});
+        private readonly uint _activeBorderColor = BitConverter.ToUInt32(new byte[] {255, 140, 0, 180});
 
         public ViewportPane(string viewportTitle, RenderTexture target)
         {
-            this.viewportTitle = viewportTitle;
+            this._viewportTitle = viewportTitle;
             // One pixel dark grey texture
             var image = new Image(1, 1);
             image.Pixels[0] = 50;
@@ -31,7 +31,7 @@ namespace Saffron2D.GuiCollection
             image.Pixels[2] = 50;
             image.Pixels[3] = 255;
 
-            fallbackTexture = new Texture(image);
+            _fallbackTexture = new Texture(image);
             Target = target;
 
             TopLeft = new Vector2f(0, 0);
@@ -48,11 +48,11 @@ namespace Saffron2D.GuiCollection
             const int uuid = 0;
 
             var builder = new StringBuilder();
-            builder.Append(viewportTitle).Append("##").Append(uuid);
+            builder.Append(_viewportTitle).Append("##").Append(uuid);
 
             ImGui.Begin(builder.ToString(), ImGuiWindowFlags.NoFocusOnAppearing);
 
-            dockId = ImGui.GetWindowDockID();
+            _dockId = ImGui.GetWindowDockID();
 
             Hovered = ImGui.IsWindowHovered();
             Focused = ImGui.IsWindowFocused();
@@ -71,11 +71,11 @@ namespace Saffron2D.GuiCollection
             _bottomRight.Y = maxBound.Y;
 
             var vpSize = ViewportSize;
-            var imageRendererID = Target?.Texture.NativeHandle ?? fallbackTexture.NativeHandle;
-            ImGui.Image((IntPtr) imageRendererID, new Vector2(vpSize.X, vpSize.Y));
+            var imageRendererId = Target?.Texture.NativeHandle ?? _fallbackTexture.NativeHandle;
+            ImGui.Image((IntPtr) imageRendererId, new Vector2(vpSize.X, vpSize.Y));
 
             ImGui.GetWindowDrawList().AddRect(new Vector2(TopLeft.X, tl.Y), new Vector2(br.X, br.Y),
-                Focused ? activeBorderColor : inactiveBorderColor, 0.0f, ImDrawCornerFlags.All, 4);
+                Focused ? _activeBorderColor : _inactiveBorderColor, 0.0f, ImDrawCornerFlags.All, 4);
 
             ImGui.End();
             ImGui.PopStyleVar();

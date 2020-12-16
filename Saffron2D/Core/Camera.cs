@@ -11,14 +11,14 @@ namespace Saffron2D.Core
     public class Camera
     {
         private Transform _transform;
-        private Transform rotationTransform;
-        private Transform zoomTransform;
+        private Transform _rotationTransform;
+        private Transform _zoomTransform;
         
         private Vector2f _position;
         private float _rotation;
         private Vector2f _zoom;
 
-        private Vector2f? follow;
+        private Vector2f? _follow;
         
         public Camera(float rotationSpeed = 1.0f)
         {
@@ -40,9 +40,9 @@ namespace Saffron2D.Core
 
             var dt = Global.Clock.FrameTime;
 
-            if (follow.HasValue)
+            if (_follow.HasValue)
             {
-                Center = follow.Value;
+                Center = _follow.Value;
             }
             else
             {
@@ -54,8 +54,8 @@ namespace Saffron2D.Core
                     if (Utils.VecUtils.LengthSq(delta) > 0.0f)
                     {
                         delta.Y *= -1.0f;
-                        delta = rotationTransform.GetInverse().TransformPoint(delta);
-                        delta = zoomTransform.GetInverse().TransformPoint(delta);
+                        delta = _rotationTransform.GetInverse().TransformPoint(delta);
+                        delta = _zoomTransform.GetInverse().TransformPoint(delta);
                         delta *= -1.0f;
                         ApplyMovement(delta);
                     }
@@ -129,8 +129,8 @@ namespace Saffron2D.Core
                 }
 
                 _zoom = value;
-                zoomTransform = Transform.Identity;
-                zoomTransform.Scale(_zoom);
+                _zoomTransform = Transform.Identity;
+                _zoomTransform.Scale(_zoom);
                 UpdateTransform();
             }
         }
@@ -141,8 +141,8 @@ namespace Saffron2D.Core
             set
             {
                 _rotation = value;
-                rotationTransform = Transform.Identity;
-                rotationTransform.Rotate(_rotation);
+                _rotationTransform = Transform.Identity;
+                _rotationTransform.Rotate(_rotation);
                 UpdateTransform();
             }
         }
@@ -153,7 +153,7 @@ namespace Saffron2D.Core
 
         public void Unfollow()
         {
-            follow = null;
+            _follow = null;
         }
 
         public Vector2f ViewportSize { get; set; }

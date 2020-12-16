@@ -6,17 +6,17 @@ namespace Saffron2D.Core
 {
     public class Window
     {
-        private string _Title;
+        private string _title;
 
         public SFML.Graphics.RenderWindow NativeWindow { get; }
 
         public string Title
         {
-            get => _Title;
+            get => _title;
             set
             {
                 if (Title == value) return;
-                _Title = value;
+                _title = value;
                 NativeWindow.SetTitle(value);
             }
         }

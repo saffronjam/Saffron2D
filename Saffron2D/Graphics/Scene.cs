@@ -26,7 +26,7 @@ namespace Saffron2D.Graphics
 
         private readonly List<DrawCommand> _drawCommands = new List<DrawCommand>();
         public RenderTarget Target { get; set; }
-        private bool begun = false;
+        private bool _begun = false;
         private Vector2f _viewportSize;
 
         public RenderStates ScreenSpace { get; } = default;
@@ -44,12 +44,12 @@ namespace Saffron2D.Graphics
 
         public void Begin()
         {
-            if (begun)
+            if (_begun)
             {
                 throw new SaffronStateException("Scene has already begun, did you call BeginScene twice?");
             }
 
-            begun = true;
+            _begun = true;
             _drawCommands.Clear();
         }
 
@@ -61,7 +61,7 @@ namespace Saffron2D.Graphics
                 Target.Draw(drawCommand.Drawable, drawCommand.RenderStates);
             }
 
-            begun = false;
+            _begun = false;
         }
 
         public void Submit(Drawable drawable, int zIndex = -1)
