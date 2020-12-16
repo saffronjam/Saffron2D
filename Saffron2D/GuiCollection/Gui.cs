@@ -222,6 +222,11 @@ namespace Saffron2D.GuiCollection
         {
             throw new NotImplementedException();
         }
+
+        public static ImFontPtr GetFont(int size)
+        {
+            return GetAppropriateFont(size);
+        }
         
         private static ImFontPtr GetAppropriateFont(int size)
         {

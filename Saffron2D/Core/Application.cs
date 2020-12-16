@@ -29,7 +29,7 @@ namespace Saffron2D.Core
             {
                 throw new SaffronStateException("Application already created.");
             }
-            
+
             _instance = this;
 
             Window = new Window(videoMode, windowTitle);
@@ -70,12 +70,14 @@ namespace Saffron2D.Core
         private void RenderGui(Time dt)
         {
             Gui.OnUpdate(dt);
+            ImGui.PushFont(Gui.GetFont(18));
 
             foreach (var layer in _layers)
             {
                 layer.OnGuiRender();
             }
 
+            ImGui.PopFont();
             Gui.OnRender();
         }
 

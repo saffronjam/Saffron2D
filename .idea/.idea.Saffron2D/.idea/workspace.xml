@@ -23,20 +23,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" afterDir="false" />
+    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="Rename through solution to be consistent and follow naming conventions">
       <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Global.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Input.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Run.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Run.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Graphics/RenderTargetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Graphics/RenderTargetManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Graphics/Scene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Graphics/Scene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/DockSpace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/DockSpace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/ViewportPane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/ViewportPane.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +42,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/f6/a23033b9/ImGui.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/63/4caff97d/ImFontGlyphPtr.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/a4/38c1d600/ImGuiIOPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ownem/source/repos/Saffron2D/Saffron2D/Core/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE4561E3-1BBD-4DEF-AE37-717DBFE12D27/d4/5f9ab9c4/Wgl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/46/763a747f/ImFontPtr.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/68/a64fdd11/ImGuiNative.cs" root0="SKIP_HIGHLIGHTING" />
@@ -62,6 +52,8 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Project/Layers/MainLayer.cs" />
+      <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
+      <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lcLV0CZjwQfFpsR2zfJQrVuhym" />
@@ -145,6 +137,13 @@
       <workItem from="1608040412044" duration="5703000" />
       <workItem from="1608104622634" duration="1738000" />
     </task>
+    <task id="LOCAL−00001" summary="Rename through solution to be consistent and follow naming conventions">
+      <created>1608156229797</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1608156229797</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,103 +166,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="508" height="436" key="DebuggerActiveHint" timestamp="1608136261010">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="508" height="436" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1608136261010" />
-    <state width="1877" height="230" key="GridCell.Tab.0.bottom" timestamp="1608153005794">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
-    <state width="1877" height="230" key="GridCell.Tab.0.center" timestamp="1608153005794">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
-    <state width="1877" height="230" key="GridCell.Tab.0.left" timestamp="1608153005794">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
-    <state width="1877" height="230" key="GridCell.Tab.0.right" timestamp="1608153005794">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="230" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
-    <state width="1877" height="252" key="GridCell.Tab.1.bottom" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.1.center" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.1.left" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.1.right" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.2.bottom" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.2.center" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.2.left" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.2.right" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.3.bottom" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.3.center" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.3.left" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.3.right" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.4.bottom" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.4.center" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.4.left" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="1877" height="252" key="GridCell.Tab.4.right" timestamp="1608137864941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="252" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
-    <state width="498" height="477" key="SwitcherDM" timestamp="1608136786613">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="477" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1608136786613" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1608153252817">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608153252817" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608131539194">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608131539194" />
+    <MESSAGE value="Rename through solution to be consistent and follow naming conventions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename through solution to be consistent and follow naming conventions" />
   </component>
 </project>
