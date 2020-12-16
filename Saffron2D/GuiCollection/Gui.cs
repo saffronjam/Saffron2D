@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Numerics;
-using System.Runtime.InteropServices;
 using ImGuiNET;
 using Saffron2D.Core;
+using Saffron2D.Core.SfmlExtension;
 using SFML.Graphics;
 using SFML.System;
 
@@ -13,16 +11,26 @@ namespace Saffron2D.GuiCollection
 {
     public class Gui
     {
-        private static readonly Dictionary<int, ImFontPtr> Fonts = new Dictionary<int, ImFontPtr>(); 
+        private static readonly Dictionary<int, ImFontPtr> Fonts = new Dictionary<int, ImFontPtr>();
+        private static string IniFilepath { get; set; }
 
-        public static void OnInit()
+        public static void OnInit(string iniFilepath)
         {
+            IniFilepath = iniFilepath;   
+            
             // Setup Platform/Renderer bindings
             var window = Application.Instance.Window;
             GuiImpl.Init( window.NativeWindow as RenderWindow, true);
             
             var io = ImGui.GetIO();
 
+            unsafe
+            {
+                io.NativePtr->IniFilename = null;
+            }
+            ImGui.LoadIniSettingsFromDisk(IniFilepath);
+            
+            
             const int defaultFontSize = 18;
             var newFont = AddFont("C:/Windows/Fonts/segoeui.ttf", defaultFontSize);
             
@@ -186,6 +194,7 @@ namespace Saffron2D.GuiCollection
 
         public static void OnShutdown()
         {
+            ImGui.SaveIniSettingsToDisk(IniFilepath);
             GuiImpl.Shutdown();
         }
 

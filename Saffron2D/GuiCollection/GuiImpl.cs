@@ -2,7 +2,6 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 using ImGuiNET;
 using SFML.Graphics;
 using SFML.System;
@@ -38,7 +37,7 @@ namespace Saffron2D.GuiCollection
             io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard; // Enable Keyboard Controls
             //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable; // Enable Docking
-            io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+            // io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable; // Enable Multi-Viewport / Platform Windows
             //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
             //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
@@ -274,7 +273,10 @@ namespace Saffron2D.GuiCollection
             _fontTexture.Dispose();
             for (var i = 0; i < (int) ImGuiMouseCursor.COUNT; ++i)
             {
-                mouseCursors[i].Dispose();
+                if(mouseCursors[i] != null)
+                {
+                    mouseCursors[i].Dispose();
+                }
             }
 
             ImGui.DestroyContext();

@@ -1,4 +1,6 @@
 ﻿using System;
+using SFML.Window;
+
 
 namespace Saffron2D.Exceptions
 {

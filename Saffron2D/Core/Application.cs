@@ -1,9 +1,11 @@
 ﻿using Saffron2D.Exceptions;
 using System.Collections.Generic;
+using ImGuiNET;
+using Saffron2D.Graphics;
 using Saffron2D.GuiCollection;
-
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
 namespace Saffron2D.Core
 {
@@ -16,27 +18,59 @@ namespace Saffron2D.Core
         private readonly List<Layer> _layers = new List<Layer>();
         private bool _shouldRun = true;
 
+        private Time fpsTimer = Time.Zero;
+        private int cachedFps = 0;
+        private Time storedFrametime = Time.Zero;
+        private int storedFrameCount = 0;
+
         protected Application(SFML.Window.VideoMode videoMode, string windowTitle)
         {
             if (_instance != null)
             {
                 throw new SaffronStateException("Application already created.");
             }
-
+            
             _instance = this;
 
             Window = new Window(videoMode, windowTitle);
             Window.Closed += (sender, args) => { Exit(); };
+            RenderTargetManager.Add(new ControllableRenderTarget(Window, Color.Black));
 
             Input.AddEventSource(Window);
 
-            Gui.OnInit();
+            Gui.OnInit("../../../gui.ini");
+        }
+
+        public virtual void OnGuiRender()
+        {
+            if (ImGui.Begin("Stats"))
+            {
+                var dt = Global.Clock.FrameTime;
+                fpsTimer += dt;
+                if (fpsTimer.AsSeconds() < 2.0f)
+                {
+                    storedFrameCount++;
+                    storedFrametime += dt;
+                }
+                else
+                {
+                    cachedFps = (int) (storedFrameCount / storedFrametime.AsSeconds());
+                    storedFrameCount = 0;
+                    storedFrametime = Time.Zero;
+                    fpsTimer = Time.Zero;
+                }
+
+
+                ImGui.Text("Frametime " + Global.Clock.FrameTime.AsSeconds() + " s");
+                ImGui.Text("FPS: " + cachedFps);
+                ImGui.End();
+            }
         }
 
         private void RenderGui(Time dt)
         {
             Gui.OnUpdate(dt);
-                
+
             foreach (var layer in _layers)
             {
                 layer.OnGuiRender();
@@ -53,21 +87,24 @@ namespace Saffron2D.Core
             {
                 var dt = Global.Clock.Restart();
 
+                Input.OnUpdate();
                 Window.DispatchEvents();
 
-                Window.Clear(Color.Black);
+                RenderTargetManager.ClearAll();
+                Scene.Begin();
                 foreach (var layer in _layers)
                 {
                     layer.OnUpdate(dt);
                 }
 
+                Scene.End();
+
                 RenderGui(dt);
-                
-                Input.OnUpdate();
+
                 Run.OnUpdate(dt);
                 Run.Execute();
-                
-                Window.Display();
+
+                RenderTargetManager.DisplayAll();
             }
 
             OnShutdown();
@@ -84,7 +121,7 @@ namespace Saffron2D.Core
 
         public virtual void OnShutdown()
         {
-            
+            Gui.OnShutdown();
         }
 
         public virtual void OnUpdate()
@@ -112,7 +149,7 @@ namespace Saffron2D.Core
 
         public void PopLayer()
         {
-            _layers[_layers.Count - 1].OnDetach();
+            _layers[^1].OnDetach();
             _layers.RemoveAt(_layers.Count - 1);
         }
 
@@ -121,5 +158,7 @@ namespace Saffron2D.Core
             layer.OnDetach();
             _layers.Remove(layer);
         }
+
+        public Scene Scene { get; set; }
     }
 }

@@ -9,7 +9,14 @@ namespace Saffron2D.Core
             private static readonly SFML.System.Clock nativeClock = new SFML.System.Clock();
 
             public static Time ElapsedTime => nativeClock.ElapsedTime;
-            public static Time Restart() => nativeClock.Restart();
+
+            public static Time Restart()
+            {
+                FrameTime =  nativeClock.Restart();
+                return FrameTime;
+            }
+
+            public static Time FrameTime { get; set; } 
         }
     }
 }

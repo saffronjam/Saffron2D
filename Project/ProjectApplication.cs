@@ -9,7 +9,7 @@ namespace Project
     public class ProjectApplication : Application
     {
 
-        public ProjectApplication() : base(new VideoMode(1024, 720), "Saffron2D")
+        public ProjectApplication() : base(new VideoMode(1500, 800), "Saffron2D")
         {
         }
 

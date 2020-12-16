@@ -4,12 +4,45 @@
     <projectFile>Saffron2D/Saffron2D.csproj</projectFile>
     <projectFile>Project/Project.csproj</projectFile>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Project/gui.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/Graphics/ControllableRenderTarget.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/Graphics/RenderTargetManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/Graphics/Scene.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/DockSpace.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/ViewportPane.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saffron2D/Utils/VectorUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Project.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Project.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Window.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Saffron2D.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Saffron2D.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Global.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Global.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Input.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/SfmlExtension/Vector4.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/SfmlExtension/Vector4.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Exceptions/SaffronStateException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Exceptions/SaffronStateException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,37 +53,73 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/69/b577da13/ImFontAtlasPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A9C37662-579A-499A-A4DE-B3C85349280D/52/AccessViolationException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1C015EBF-8F70-4D34-BFD0-318FF5185D2E/2a/cf30d724/GLFWBindingsContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/f6/a23033b9/ImGui.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/63/4caff97d/ImFontGlyphPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/a4/38c1d600/ImGuiIOPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE4561E3-1BBD-4DEF-AE37-717DBFE12D27/d4/5f9ab9c4/Wgl.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/46/763a747f/ImFontPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/68/a64fdd11/ImGuiNative.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1C015EBF-8F70-4D34-BFD0-318FF5185D2E/78/de61e213/GLFW.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFBD993C-05E1-424D-B2DF-2993BC9116A7/42/7af5caaf/IBindingsContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/70/7e02648e/ImGuiConfigFlags.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/B/RenderWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/05D63644-173A-4317-A736-6897C774F7B3/4/ContextSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/c3/45036ee1/ImColor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/ba/21322405/ImGuiIO.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2BC5ED24-0D5C-402C-8B6A-BD14FFCEE267/61/BitConverter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/11/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/4f/6d39b77d/ImDrawCmdPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2BC5ED24-0D5C-402C-8B6A-BD14FFCEE267/3D5/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/A/RenderTexture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/b6/07584e8d/ImGuiIOPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/10/Texture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE4561E3-1BBD-4DEF-AE37-717DBFE12D27/c3/46868d24/GL.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/05D63644-173A-4317-A736-6897C774F7B3/6/EventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/5c/7b8e600e/ImGui.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CF4B14B0-2FF9-4A85-8962-6FA5288DDC78/2c/52e1d48f/Vector3f.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/88/dc478902/ImFontAtlasPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05D63644-173A-4317-A736-6897C774F7B3/4a/b6e0941c/SizeEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/fa/f7620fe2/ImGuiStyle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/31/0ee5bbbf/ImGuiCol.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/05D63644-173A-4317-A736-6897C774F7B3/D/Window.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CF4B14B0-2FF9-4A85-8962-6FA5288DDC78/49/be1b9f2b/Vector2f.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E68FBA52-605F-4EEE-8878-3890392BDDFC/9/RenderStates.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/05D63644-173A-4317-A736-6897C774F7B3/f8/6230fb54/Styles.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
-      <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" />
-      <option value="$PROJECT_DIR$/Project/Layers/MainLayer.cs" />
-      <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
-      <option value="$PROJECT_DIR$/Saffron2D/Core/Window.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Run.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Gui/GuiImpl.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Gui/Gui.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiControls/Gui.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiControls/GuiImpl.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Exceptions/SaffronStateException.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Signal.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Viewport.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Utils/VectorUtils.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Global.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Graphics/RenderTargetManager.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Graphics/ControllableRenderTarget.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Graphics/Scene.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Input.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/GuiImpl.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Window.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/DockSpace.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/ViewportPane.cs" />
+        <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
+        <option value="$PROJECT_DIR$/Project/Layers/MainLayer.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1lcLV0CZjwQfFpsR2zfJQrVuhym" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35048753" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.026002167" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -60,6 +129,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -137,6 +207,105 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="508" height="436" key="DebuggerActiveHint" timestamp="1608136261010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="508" height="436" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1608136261010" />
+    <state width="1877" height="230" key="GridCell.Tab.0.bottom" timestamp="1608153005794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="230" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
+    <state width="1877" height="230" key="GridCell.Tab.0.center" timestamp="1608153005794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="230" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
+    <state width="1877" height="230" key="GridCell.Tab.0.left" timestamp="1608153005794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="230" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
+    <state width="1877" height="230" key="GridCell.Tab.0.right" timestamp="1608153005794">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="230" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608153005794" />
+    <state width="1877" height="252" key="GridCell.Tab.1.bottom" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.1.center" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.1.left" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.1.right" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.2.bottom" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.2.center" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.2.left" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.2.right" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.3.bottom" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.3.center" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.3.left" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.3.right" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.4.bottom" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.4.center" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.4.left" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="1877" height="252" key="GridCell.Tab.4.right" timestamp="1608137864941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="252" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608137864941" />
+    <state width="498" height="477" key="SwitcherDM" timestamp="1608136786613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="477" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1608136786613" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1608153252817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608153252817" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608131539194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608131539194" />
   </component>
 </project>

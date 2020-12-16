@@ -5,8 +5,9 @@
 // Assembly location: C:\Program Files\NuGet\packages\sfml.system\2.5.0\lib\netstandard2.0\SFML.System.dll
 
 using System;
+using SFML.System;
 
-namespace SFML.System
+namespace Saffron2D.Core.SfmlExtension
 {
   /// <summary>
   /// Vector4f is an utility class for manipulating 4 dimensional
