@@ -16,7 +16,7 @@ namespace Project.Layers
         private Camera _camera;
         private ControllableRenderTarget _target;
         private Scene _scene;
-        
+
         // Gui
         private DockSpace _dockSpace;
         private ViewportPane _viewportPane;
@@ -26,7 +26,7 @@ namespace Project.Layers
             _camera = new Camera();
             _target = new ControllableRenderTarget(new RenderTexture(10, 10), Color.Black);
             _scene = new Scene(_target.RenderTarget, _camera);
-            
+
             // Gui
             _dockSpace = new DockSpace();
             _viewportPane = new ViewportPane("Scene", _target.RenderTarget as RenderTexture);
@@ -49,7 +49,15 @@ namespace Project.Layers
             _dockSpace.OnGuiRender();
             Application.Instance.OnGuiRender();
             _viewportPane.OnGuiRender();
-            
+            _camera.OnGuiRender();
+
+            if (ImGui.Begin("Project"))
+            {
+                Gui.BeginPropertyGrid();
+                Gui.EndPropertyGrid();
+                ImGui.End();
+            }
+
             ImGui.ShowDemoWindow();
         }
 

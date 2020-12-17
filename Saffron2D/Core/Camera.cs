@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using ImGuiNET;
+using Saffron2D.GuiCollection;
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
@@ -13,13 +14,13 @@ namespace Saffron2D.Core
         private Transform _transform;
         private Transform _rotationTransform;
         private Transform _zoomTransform;
-        
+
         private Vector2f _position;
         private float _rotation;
         private Vector2f _zoom;
 
         private Vector2f? _follow;
-        
+
         public Camera(float rotationSpeed = 1.0f)
         {
             RotationSpeed = rotationSpeed;
@@ -85,6 +86,39 @@ namespace Saffron2D.Core
             }
         }
 
+        public void OnGuiRender()
+        {
+            if (ImGui.Begin("Camera"))
+            {
+                Gui.BeginPropertyGrid();
+                Gui.Property("Position", ref _position, -10000.0f, 10000.0f, 10.0f, Gui.PropertyFlag.Drag);
+                if (Gui.Property("Zoom", ref _zoom.X, 0.01f, 10.0f, 0.01f, Gui.PropertyFlag.Slider))
+                {
+                    _zoom.Y = _zoom.X;
+                }
+                Gui.Property("Rotation", ref _rotation, -180.0f, 180.0f, 1.0f, Gui.PropertyFlag.Slider);
+                var rotationSpeed = RotationSpeed;
+                if (Gui.Property("Rotation Speed", ref rotationSpeed, 0.0f, 10.0f, 0.1f, Gui.PropertyFlag.Slider))
+                {
+                    RotationSpeed = rotationSpeed;
+                }
+
+                if (!_follow.HasValue)
+                {
+                    Gui.Property("Follow", "Not set");
+                }
+                else
+                {
+                    var vector2F = _follow.Value;
+                    Gui.Property("Follow", ref vector2F, Gui.PropertyFlag.ReadOnly);
+                }
+
+                Gui.EndPropertyGrid();
+
+                ImGui.End();
+            }
+        }
+
         public bool ActiveController { get; set; }
 
         public Transform Transform
@@ -141,6 +175,15 @@ namespace Saffron2D.Core
             set
             {
                 _rotation = value;
+                if (_rotation < -180.0f)
+                {
+                    _rotation = 180.0f;
+                }
+                if (_rotation > 180.0f)
+                {
+                    _rotation = -180.0f;
+                }
+                
                 _rotationTransform = Transform.Identity;
                 _rotationTransform.Rotate(_rotation);
                 UpdateTransform();

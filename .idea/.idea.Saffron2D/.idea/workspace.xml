@@ -23,10 +23,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="Improve font quality (use segoui.ttf-18 instead of default)">
+    <list default="true" id="6f4a8769-3a07-4906-921a-f4081743ca8e" name="Default Changelist" comment="Add property grid (from Saffron Engine) and implemented in Application.OnGuiRender()">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Saffron2D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Layers/MainLayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project/gui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Project/gui.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Application.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,23 +40,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/69/b577da13/ImFontAtlasPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A9C37662-579A-499A-A4DE-B3C85349280D/52/AccessViolationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1C015EBF-8F70-4D34-BFD0-318FF5185D2E/2a/cf30d724/GLFWBindingsContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/f6/a23033b9/ImGui.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/63/4caff97d/ImFontGlyphPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/a4/38c1d600/ImGuiIOPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ownem/source/repos/Saffron2D/Saffron2D/Core/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FE4561E3-1BBD-4DEF-AE37-717DBFE12D27/d4/5f9ab9c4/Wgl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/46/763a747f/ImFontPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/7a/434f561a/ImGuiSliderFlags.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A9C37662-579A-499A-A4DE-B3C85349280D/52/AccessViolationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/a4/38c1d600/ImGuiIOPtr.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ownem/source/repos/Saffron2D/Saffron2D/Core/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/185814B4-4727-4CD2-BB9F-11CA8747554D/68/a64fdd11/ImGuiNative.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1C015EBF-8F70-4D34-BFD0-318FF5185D2E/78/de61e213/GLFW.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CFBD993C-05E1-424D-B2DF-2993BC9116A7/42/7af5caaf/IBindingsContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
       <option value="$PROJECT_DIR$/Project/Layers/MainLayer.cs" />
       <option value="$PROJECT_DIR$/Saffron2D/GuiCollection/Gui.cs" />
-      <option value="$PROJECT_DIR$/Saffron2D/Core/Application.cs" />
+      <option value="$PROJECT_DIR$/Saffron2D/Core/Camera.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lcLV0CZjwQfFpsR2zfJQrVuhym" />
@@ -151,7 +154,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1608156626503</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Add property grid (from Saffron Engine) and implemented in Application.OnGuiRender()">
+      <created>1608162057397</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1608162057397</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +185,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Rename through solution to be consistent and follow naming conventions" />
     <MESSAGE value="Improve font quality (use segoui.ttf-18 instead of default)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve font quality (use segoui.ttf-18 instead of default)" />
+    <MESSAGE value="Add property grid (from Saffron Engine) and implemented in Application.OnGuiRender()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add property grid (from Saffron Engine) and implemented in Application.OnGuiRender()" />
   </component>
 </project>

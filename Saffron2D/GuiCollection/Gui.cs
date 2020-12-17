@@ -19,7 +19,8 @@ namespace Saffron2D.GuiCollection
             None = 0,
             Color = 1,
             Drag = 2,
-            Slider = 4
+            Slider = 4,
+            ReadOnly = 5
         };
 
         private const float FloatStep = 0.1f;
@@ -429,13 +430,20 @@ namespace Saffron2D.GuiCollection
             ImGui.NextColumn();
             ImGui.PushItemWidth(-1);
 
+            var oldVal = value;
             var id = "##" + name;
             var changed = flag switch
             {
                 PropertyFlag.Slider => ImGui.SliderInt(id, ref value, min, max),
                 PropertyFlag.Drag => ImGui.DragInt(id, ref value, step, min, max),
+                PropertyFlag.ReadOnly => ImGui.DragInt(id, ref value, step, min, max),
                 _ => false
             };
+            
+            if (changed && flag == PropertyFlag.ReadOnly)
+            {
+                value = oldVal;
+            }
 
             ImGui.PopItemWidth();
             ImGui.NextColumn();
@@ -450,13 +458,20 @@ namespace Saffron2D.GuiCollection
             ImGui.NextColumn();
             ImGui.PushItemWidth(-1);
 
+            var oldVal = value;
             var id = "##" + name;
             var changed = flag switch
             {
                 PropertyFlag.Slider => ImGui.SliderFloat(id, ref value, min, max),
                 PropertyFlag.Drag => ImGui.DragFloat(id, ref value, step, min, max),
+                PropertyFlag.ReadOnly => ImGui.DragFloat(id, ref value, step, min, max),
                 _ => false
             };
+
+            if (changed && flag == PropertyFlag.ReadOnly)
+            {
+                value = oldVal;
+            }
 
             ImGui.PopItemWidth();
             ImGui.NextColumn();
@@ -476,15 +491,27 @@ namespace Saffron2D.GuiCollection
             ImGui.NextColumn();
             ImGui.PushItemWidth(-1);
 
+            var oldVal = value;
             var id = "##" + name;
             var imVec2 = ToImGuiVec2(value);
             var changed = flag switch
             {
                 PropertyFlag.Slider => ImGui.SliderFloat2(id, ref imVec2, min, max),
                 PropertyFlag.Drag => ImGui.DragFloat2(id, ref imVec2, step, min, max),
+                PropertyFlag.ReadOnly => ImGui.DragFloat2(id, ref imVec2, step, min, max),
                 _ => false
             };
-            CopyToSfmlVec2(ref value, imVec2);
+            
+            switch (changed)
+            {
+                case true when flag == PropertyFlag.ReadOnly:
+                    value = oldVal;
+                    break;
+                case true:
+                    CopyToSfmlVec2(ref value, imVec2);
+                    break;
+            }
+            
 
             ImGui.PopItemWidth();
             ImGui.NextColumn();
@@ -512,6 +539,7 @@ namespace Saffron2D.GuiCollection
                 ImGui.PushItemWidth(-1);
             }
 
+            var oldVal = value;
             var id = "##" + name;
             var imVec3 = ToImGuiVec3(value);
             var changed = flag switch
@@ -519,9 +547,19 @@ namespace Saffron2D.GuiCollection
                 PropertyFlag.Color => ImGui.ColorEdit3(id, ref imVec3, ImGuiColorEditFlags.NoInputs),
                 PropertyFlag.Slider => ImGui.SliderFloat3(id, ref imVec3, min, max),
                 PropertyFlag.Drag => ImGui.DragFloat3(id, ref imVec3, step, min, max),
+                PropertyFlag.ReadOnly => ImGui.DragFloat3(id, ref imVec3, step, min, max),
                 _ => false
             };
-            CopyToSfmlVec3(ref value, imVec3);
+            
+            switch (changed)
+            {
+                case true when flag == PropertyFlag.ReadOnly:
+                    value = oldVal;
+                    break;
+                case true:
+                    CopyToSfmlVec3(ref value, imVec3);
+                    break;
+            }
 
             if (fn != null)
             {
@@ -552,6 +590,7 @@ namespace Saffron2D.GuiCollection
             ImGui.NextColumn();
             ImGui.PushItemWidth(-1);
 
+            var oldVal = value;
             var id = "##" + name;
             var imVec4 = ToImGuiVec4(value);
             var changed = flag switch
@@ -559,9 +598,19 @@ namespace Saffron2D.GuiCollection
                 PropertyFlag.Color => ImGui.ColorEdit4(id, ref imVec4, ImGuiColorEditFlags.NoInputs),
                 PropertyFlag.Slider => ImGui.SliderFloat4(id, ref imVec4, min, max),
                 PropertyFlag.Drag => ImGui.DragFloat4(id, ref imVec4, step, min, max),
+                PropertyFlag.ReadOnly => ImGui.DragFloat4(id, ref imVec4, step, min, max),
                 _ => false
             };
-            CopyToSfmlVec4(ref value, imVec4);
+            
+            switch (changed)
+            {
+                case true when flag == PropertyFlag.ReadOnly:
+                    value = oldVal;
+                    break;
+                case true:
+                    CopyToSfmlVec4(ref value, imVec4);
+                    break;
+            }
 
             ImGui.PopItemWidth();
             ImGui.NextColumn();
