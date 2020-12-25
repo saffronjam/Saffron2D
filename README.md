@@ -1,3 +1,3 @@
 # Saffron2D
 
-Start .sln with either Visual Studio or Rider
+Start Saffron2D.sln with either Visual Studio or Rider
