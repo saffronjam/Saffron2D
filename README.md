@@ -1,5 +1,3 @@
 # Saffron2D
 
-
-# Windows
-Run script "Scripts/GenerateProject.bat" and open generated Visual Studio solution
+Start .sln with either Visual Studio or Rider
